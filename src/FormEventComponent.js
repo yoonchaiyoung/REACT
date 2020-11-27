@@ -6,6 +6,7 @@ const FormEventComponent = () => {
     username: "",
     message: "",
   }); // 이번에는 useState() 안에 객체가 들어간다.
+  // useState가 2개를 출력해준다. form이라는 변수, setForm이라는 함수.
 
   const { username, message } = form;
   // javascript 객체 unpacking  // 풀었음.
@@ -17,13 +18,16 @@ const FormEventComponent = () => {
   // 만약에 const {username, message} = form; 을 안할거면
   // 밑에 input value에 form.username, form.message를 각각 넣으면 됨.
 
-  const onChange = (e) => {
+  const _onChangeHandler = (e) => {
     const nextForm = {
       ...form, // ...(spread 연산자) : 전개 ; 원본을 복사하는 것  // numpy 할 때 나왔었음.
       // ...form : 원본 객체의 모든 내용을 복사하겠다.  // 하지만 같은 객체는 아님. 다른 객체. deep copy.
       // state : 값의 변경X, 새로운 걸 만들어서 교체O.
       // 바뀔 때마다 ...form 에는 이전 state 값이 들어있음.
       // 이전 state 값을 모두 다 복사해주고 밑에서 수정함.
+
+      // 만약에 ...form을 안하면 변경된 이름만 갖고 메세지 자체는 사라지게 됨.
+      // 즉, {name:변경된 이름} 이렇게 message라는 key자체가 사라짐!!!
 
       // 원본에 대한 복사본 만들고 수정할 거 하고 새로 집어넣는 과정.
       [e.target.name]: e.target.value, // 필요한 부분을 수정하는 부분
@@ -47,13 +51,13 @@ const FormEventComponent = () => {
         name="username"
         placeholder="사용자명"
         value={username} // state의 key값이랑 맞춰준다.
-        onChange={onChange}
+        onChange={_onChangeHandler}
       />
       <input // event target2
         name="message"
         placeholder="아무거나 입력해 보세요"
         value={message} // state의 key값이랑 맞춰준다.
-        onChange={onChange}
+        onChange={_onChangeHandler}
       />
       <button>확인</button>
     </div>

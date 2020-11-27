@@ -4,7 +4,7 @@ const CounterComponent = () => {
   // let count = 0;
 
   // useState hooks를 활용해 component state(컴포넌트 상태값) 만들기
-  // hook? component를 위한 여러가지 기능들
+  // hook? component를 위한 여러가지 기능들, 함수.
   const [count, setCount] = useState(0);
   // useState() 안쪽에 어떤 것이든 다 들어갈 수 있음 ; 객체, 숫자 등등
   // count, setCount 가 나옴
