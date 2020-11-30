@@ -8,6 +8,14 @@ const FormEventComponent = () => {
   }); // 이번에는 useState() 안에 객체가 들어간다.
   // useState가 2개를 출력해준다. form이라는 변수, setForm이라는 함수.
 
+  // const initialState = {
+  //   username: "",
+  //   message:"",
+  // };
+
+  // const [form, setForm] = useState(initialState);
+  // 이렇게 한 것과 동일하다.
+
   const { username, message } = form;
   // javascript 객체 unpacking  // 풀었음.
   // username, message : state
@@ -17,6 +25,9 @@ const FormEventComponent = () => {
 
   // 만약에 const {username, message} = form; 을 안할거면
   // 밑에 input value에 form.username, form.message를 각각 넣으면 됨.
+
+  // 언패킹 한 이유?
+  // form.username, form.message 라고 쓰기 귀찮아서 편하게 쓰기 위해서.
 
   const _onChangeHandler = (e) => {
     const nextForm = {

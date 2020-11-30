@@ -13,6 +13,7 @@ const SayComponent = () => {
 
   // 입장 event
   const onClickEnter = () => {
+    // 얘가 handler
     setMessage("안녕!😁");
   };
   // 퇴장 event

@@ -49,9 +49,12 @@ const IterationObjectComponent = () => {
       <button onClick={_handleAddButtonClick}>추가</button>
       <ul>
         {names.map((name) => (
+          // 함수 뒤의 소괄호 (name) -> 안 쪽에 있는 값을 return 으로 사용했다. return 키워드를 생략했다.
+
           //   <li key={name.id} onDoubleClick={_handleRemoveItem}>  // 이렇게 하면 event 객체만 넘어감.
           // id 객체를 같이 넘겨줘야 한다. 바로 아래처럼.
           <li key={name.id} onDoubleClick={() => _handleRemoveItem(name.id)}>
+            {/* key가 있어야지 오류 X. 반복되는 component를 만질 때는 key 값 필요. */}
             {name.text}
           </li>
         ))}
@@ -80,3 +83,10 @@ export default IterationObjectComponent;
 
 // 삭제는 어떻게?
 // key={name.id} 는 언제나 고유하니까 그걸 힌트로 삭제..
+
+// 데이터들을 보여주는 것
+// state 활용
+// name 이라는 배열 state에서 원소 하나씩 꺼내서(map)
+
+// 삭제만 했는 데
+// 수정도 해보기!
